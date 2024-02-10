@@ -1,0 +1,104 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+   
+}
+body{
+    max-width: 1400px;
+    margin: auto;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+ul , li{
+    text-decoration: none;
+    list-style-type: none;
+    
+
+}
+.nav-top{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-block:2rem ;
+}
+.nav-top div ul{
+    display: flex;
+
+
+}
+
+.nav-top div ul li{
+   margin: .1rem;    
+   padding: .3rem;
+   border-right: 1px solid black;
+
+}
+
+.nav-mid{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block:2rem ;
+}
+.nav-mid .logo {
+    width: 33%;
+}
+.nav-mid .logo img{
+    width: 30%;
+}
+.nav-mid .search-bar{
+
+}
+
+.nav-mid div:last-child{
+    display: flex;
+}
+
+.nav-bot{
+    display: flex;
+    justify-content: space-between;
+    margin-block:2rem ;
+
+}
+.nav-bot .first{
+    width: 33%;
+    
+}
+.nav-bot .first span{
+    display: inline-block;
+    color: white;
+    background-color: green;
+    padding: 1rem;
+    font-size: 1.4rem;
+    border-radius: .5rem;
+
+}
+
+.dropdown {
+    display: none;
+}
+
+/* Show dropdown when hovering over h6 */
+.nav-item:hover .dropdown {
+    display: block;
+}
+
+.nav-bot .second{
+    display: flex;
+    justify-content: space-between;
+    width: 77%;
+}
+.nav-bot .second div:first-child{
+    font-size: 1.4rem;
+    margin-block: 0.3rem;
+}
+.nav-bot .second div h6{
+    font-size: 1.4rem;
+    margin-block: 0.3rem;
+    margin-top: 0;
+}
+
+

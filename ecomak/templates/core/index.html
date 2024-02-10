@@ -1,0 +1,208 @@
+{% extends "partials/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="home">
+        <div class="left">
+            <div class="category">
+                <h4>Category</h4>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <i class="fa-solid fa-shop"></i>
+                                <span>Dairy</span>
+                                <span>23</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fa-solid fa-shop"></i>
+                                <span>Dairy</span>
+                                <span>23</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fa-solid fa-shop"></i>
+                                <span>Dairy</span>
+                                <span>23</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fa-solid fa-shop"></i>
+                                <span>Dairy</span>
+                                <span>23</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <i class="fa-solid fa-shop"></i>
+                                <span>Dairy</span>
+                                <span>23</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="filter">
+
+                <div>
+                    <h4>Find by price</h4>
+                    <input type="range" name="" id="">
+                    <div>
+                        <h6>From:$500</h6>
+                        <h6> To:$1000</h6>
+                    </div>
+                </div>
+
+                <label for="color" class="mar">Color</label>
+                <input type="checkbox"> red(56) <br>
+                <input type="checkbox"> blue(45) <br>
+                <input type="checkbox"> Green(3) <br>
+
+
+                <label for="condition" class="mar">Item Condition</label> 
+                <input type="checkbox"> new <br>
+                <input type="checkbox"> refurbished <br>
+                <input type="checkbox"> used <br>
+                
+                <div class="filter-btn">
+                    Filter
+                </div>
+
+            </div>
+            
+            <div class="new-p">
+                <h4>New Products</h4>
+                <hr>
+                
+                <a href="#">
+                    <div>
+                        <div>
+                            <img src="{% static 'assest/orange-juice.avif' %}" alt="">
+                        </div>
+                        <div>
+                            <h6>Chen Cardigan</h6>
+                            <p>$99.5</p>
+                            <span>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </span>
+                        
+                        </div>
+                        
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div>
+                        <div>
+                            <img src="{% static 'assest/orange-juice.avif' %}" alt="">
+                        </div>
+                        <div>
+                            <h6>Chen Cardigan</h6>
+                            <p>$99.5</p>
+                            <span>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </span>
+                        
+                        </div>
+                        
+                    </div>
+                </a>
+
+                <a href="#">
+                    <div>
+                        <div>
+                            <img src="{% static 'assest/orange-juice.avif' %}" alt="">
+                        </div>
+                        <div>
+                            <h6>Chen Cardigan</h6>
+                            <p>$99.5</p>
+                            <span>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </span>
+                        
+                        </div>
+                        
+                    </div>
+                </a>
+                
+            </div>
+        
+        </div>
+
+        <div class="right">
+            <div class="banner"  >
+                <div>
+                    <h4>Fresh Vegetable Big Discount</h4>
+
+                    <h6>Save upto 54% off oon your first order</h6>
+                    <input type="text" placeholder="Your Email address">
+                    <button type="submit">Subscribe</button>
+                </div>
+            </div>
+
+            <nav class="nav-home">
+                <h4>Popular Products</h4>
+                <div>
+                    <ul>
+                        <li>All</li>
+                        <li>Mliks & Dairies</li>
+                        <li>Coffee</li>
+                        <li>Pet Food</li>
+                        <li>meat</li>
+                        <li>Vegetable</li>
+                        <li>Furit</li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="card">
+                {% for product in products %}
+                    <div class="product-card">
+                        <div class="badge">-{{ product.get_percentage|floatformat }} <span> </span>%</div>
+                        <div class="product-tumb">
+                            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-catagory">{{ product.Category }} </span>
+                            <h4><a href="">{{ product.title }}</a></h4>
+                            <p>{{ product.description }}</p>
+                            <p>by {{ product.vendor.title }}</p>
+                            <div class="product-bottom-details">
+                                <div class="product-price"><small>{{ product.old_price }}</small>${{ product.price }}</div>
+                                <div class="product-links">
+                                    <a href=""><i class="fa fa-heart"></i></a>
+                                    <a href=""><i class="fa fa-shopping-cart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %} 
+
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

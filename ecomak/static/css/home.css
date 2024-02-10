@@ -1,0 +1,345 @@
+
+.home{
+    display: flex;
+    justify-content: space-between;
+}
+
+.home .left{
+    width: 21%;
+    
+
+}
+
+.home .left .category{
+    padding: 2%;
+    padding-bottom: 4%;
+    width: 90%;
+    margin: auto;
+    border: 1px solid rgba(128, 128, 128, 0.421);
+    border-radius: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    
+}
+.home .left .category h4{
+    width: 90%;
+    margin: auto;
+    font-size: 1.5rem;
+    margin-block: .5rem;
+}
+
+.home .left .category ul{
+    width: 90%;
+    margin: auto;
+    font-size: 1rem;
+}
+
+.home .left .category  ul li{
+    border: 1px solid rgba(128, 128, 128, 0.421);
+    padding: .4rem;
+    margin-block: .4rem;
+
+}
+.home .left .category  ul li span{
+    margin-inline:.7rem ;
+}
+.home .left .category  ul li span:last-child{
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: aquamarine;
+    font-size: 14px;
+    text-align: center;
+    
+    
+    
+}
+
+
+.home .left .filter{
+    padding: 3%;
+    padding-bottom: 4%;
+    width: 90%;
+    margin: auto;
+    border: 1px solid rgba(128, 128, 128, 0.421);
+    border-radius: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-top: 2rem;
+    
+}
+.home .left .filter div input{
+    
+    margin-inline: 5%;
+}
+.home .left .filter div div{
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 5%;
+    
+}
+
+.home .left .filter label{
+    display: block;
+    margin-block:7px;
+    
+}
+
+
+
+.home .left .filter .filter-btn{
+    width: 50%;
+    padding: .2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    margin-block:1rem;
+}
+
+
+.home .left .new-p {
+    padding: 3%;
+    padding-bottom: 4%;
+    width: 90%;
+    margin: auto;
+    border: 1px solid rgba(128, 128, 128, 0.421);
+    border-radius: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    margin-top: 2rem;
+}
+
+.home .left .new-p h4{
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.home .left .new-p hr{
+    margin-top: 5px;
+    width: 35%;
+}
+.home .left .new-p div{
+    display: flex;
+    margin-block: 1rem;
+}
+
+.home .left .new-p div div:first-child {
+   width: 40%;
+}
+.home .left .new-p div div img {
+    width: 60%;
+    
+    object-fit: cover;
+    object-position: center;
+}
+
+.home .left .new-p div div {
+    display: flex;
+    flex-direction: column;
+}
+
+.home .left .new-p div div h6 {
+    font-size: 1.2rem;
+}
+
+
+.home .right{
+    width: 77%;
+   
+    
+}
+
+
+
+.home .right .banner{
+    background-color: aqua;
+    background-image: url('/static/assest/banner.avif') ;
+    /* background-position: center;  */
+    /* background-repeat: no-repeat;  */
+    background-size: cover; 
+   
+    width: 100%;
+    /* height: 70vh; */
+    border-radius:1rem ;
+    margin-block: 2rem;
+}
+.home .right .banner div{
+    width: 60%;
+    padding: 3rem;
+    color: rgb(84, 236, 84);
+    color: black;
+
+}
+
+.home .right .banner h4{
+    font-size: 400%;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-block: 2rem;
+}
+
+.home .right .banner h6{
+    font-size: 200%;
+    font-weight: 700;
+    margin-block: 2rem;
+}
+.home .right .banner input{
+    padding: .7rem;
+    border-radius: 30px;
+    border: none;
+    background-color: white;
+    margin-block: 2rem;
+}
+
+.home .right .banner button{
+    padding: .7rem;
+    margin-left: -2.3rem;
+    border-radius: 30px;
+    border: none;
+    background-color: rgb(128, 241, 128);
+}
+
+.home .right .nav-home{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    
+}
+.home .right .nav-home h4{
+    font-size: 150%;
+    width: 30%;
+}
+
+.home .right .nav-home div{
+    
+    width: 50%;
+}
+
+.home .right nav div ul{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.home .right .card{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+
+.product-card {
+    width: 200px;
+    position: relative;
+    box-shadow: 0 2px 7px #dfdfdf;
+    /* margin: 50px auto; */
+    margin-inline: 2rem;
+    margin-block: 2rem;
+    background: #fafafa;
+}
+
+.badge {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 700;
+    background: red;
+    color: #fff;
+    padding: 3px 10px;
+}
+
+.product-tumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 300px; */
+    padding: 50px;
+    background: #f0f0f0;
+}
+
+.product-tumb img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.product-details {
+    padding: 20px;
+}
+
+.product-catagory {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #ccc;
+    margin-bottom: 18px;
+}
+
+.product-details h4 a {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    color: #363636;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.product-details h4 a:hover {
+    color: #fbb72c;
+}
+
+.product-details p {
+    font-size: 15px;
+    line-height: 22px;
+    margin-bottom: 18px;
+    color: #999;
+}
+
+.product-bottom-details {
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.product-bottom-details div {
+    float: left;
+    width: 50%;
+}
+
+.product-price {
+    font-size: 18px;
+    color: #fbb72c;
+    font-weight: 600;
+}
+
+.product-price small {
+    font-size: 80%;
+    font-weight: 400;
+    text-decoration: line-through;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.product-links {
+    text-align: right;
+}
+
+.product-links a {
+    display: inline-block;
+    margin-left: 5px;
+    color: #e1e1e1;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.product-links a:hover {
+    color: #fbb72c;
+}
