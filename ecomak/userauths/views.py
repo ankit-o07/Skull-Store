@@ -66,7 +66,7 @@ def login_view(request):
         
 
     context={
-
+       
     }
    
     return render(request,'userauths/sign-in.html',context)

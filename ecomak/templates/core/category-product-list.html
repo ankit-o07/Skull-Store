@@ -1,0 +1,98 @@
+{% extends "partials/base.html" %}
+{% load static %}
+
+{% block content %}
+        <div class="cat-prod-list">
+        <div class="cat-name">
+            <div>
+                <div>Sanks</div>
+                <div>
+                    <ul>
+                        <li ><i class="fa-solid fa-house"></i>Home</li>
+                        <div class="ver-cen"><i class="fa-solid fa-greater-than"></i></div>
+                        <li class="ver-cen">shop</li>
+                        <div class="ver-cen"><i class="fa-solid fa-greater-than"></i></div>
+                        <li class="ver-cen">Snack</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <ul>
+                        <li><i class="fa-solid fa-x"></i>Cabbage</li>
+                        <li><i class="fa-solid fa-x"></i>Broccoli</li>
+                        <li><i class="fa-solid fa-x"></i>Artichoke</li>
+                        <li><i class="fa-solid fa-x"></i>Celery</li>
+                        <li><i class="fa-solid fa-x"></i>Spianch</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter">
+            <div><h4>We found 29 item for you</h4></div>
+            <div>
+                <div class="show">
+                    <div>Show 50 </div>
+                    <div class="on-hover">
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="show">
+                    <div>Short by:feature</div>
+                    <div class="on-hover">
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="listing">
+            <div class="card">
+                
+                    <div class="product-card">
+                        <div class="badge">-{{ product.get_percentage|floatformat }} <span> </span>%</div>
+                        <div class="product-tumb">
+                            <img src="{{ category.image.url }}" alt="{{ category.title }}">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-catagory">{{ category.title }} </span>
+                            <h4><a href="">{{ product.title }}</a></h4>
+                            <!-- <p>{{ product.description }}</p> -->
+                            <!-- <p>by {{ product.vendor.title }}</p> -->
+                            <div class="product-bottom-details">
+                                <div class="product-price"><small>{{ product.old_price }}</small>{{ category.category.count }}</div>
+                                <div class="product-links">
+                                   
+                                    <a href=""><i class="fa fa-heart"></i></a>
+                                    <a href=""><i class="fa fa-shopping-cart"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              
+    
+    
+    
+    
+                
+    
+    
+    
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

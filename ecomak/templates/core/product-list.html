@@ -7,29 +7,27 @@
             <div class="by-category">
                 <h4>By Category</h4>
                 <div>
-                    <div>Dairy</div>
-                    <div>Clothing & Beauty</div>
-                    <div>Pet & Food</div>
-                    <div>Baking Material</div>
+
+                    {% for c in categories %}
+                    <input type="checkbox" name="checkbox" class="filter-checkbox" data-filter="category" id="" value="{{c.id}}">
+                    <label for="a"><div>{{ c.title }}</div></label> <br>
+                        
+                    {% endfor %}
+                    
                 </div>
             </div>
             <div class="by-vendor">
                 <h4>By Vendor</h4>
                 <div>
                     <form action=".">
-                        <input type="checkbox">
-                        <label for="a">a</label> <br>
+                        {% for v in vendors %}
+                            
+                            <input type="checkbox" class="filter-checkbox" data-filter="vendor" value="{{c.id}}">
+                            <label for="a">{{ v.title }}</label> <br>
+                        {% endfor %}
                         
-                        <input type="checkbox">
-                        <label for="a">a</label> <br>
-                       
-                        <input type="checkbox">
-                        <label for="a">a</label> <br>
-
-                        <input type="checkbox">
-                        <label for="a">a</label> <br>
-                        <input type="checkbox">
-                        <label for="a">a</label> <br>
+                        
+                        
                     </form>
                 </div>
             </div>
@@ -44,18 +42,21 @@
 
             </div>
             <div class="by-price">
-                <h4>By Price</h4>
+                <h4 >By Price</h4>
+                <input type="text" id="test">
 
                 <div>
-                    <form action=".">
-                        <input type="range">
-                        <div><span>From: </span> <span>To:</span></div>
-
-                        <input type="checkbox">
-                        <label for="a">a</label> <br>
+                    
+                        <input type="range" id="range" value="{{ min_max_price.price__min|floatformat:2 }}"  class="slider-range"  min="{{ min_max_price.price__min|floatformat:2 }}" max="{{ min_max_price.price__max|floatformat:2 }}" oninput="max_price.value=this.value">
+                        <div><span>From: {{ min_max_price.price__min }}</span> <span>To:{{ min_max_price.price__max|floatformat:2 }}</span></div>
+                        <input type="number" name="" value="{{ min_max_price.price__min|floatformat:2 }}"  id="max_price" min="{{ min_max_price.price__min|floatformat:2 }}" max="{{ min_max_price.price__max|floatformat:2 }}" placeholder="Current Price" onkeyup="range.value=this.value">
+                        
+                        <button  id="price-filter-btn" type="button">filter</button>
+                        <!-- <input type="checkbox">
+                        <label for="a">netlify</label> <br>
                         
                         <input type="checkbox">
-                        <label for="a">a</label> <br>
+                        <label for="a">unilever</label> <br>
                        
                         <input type="checkbox">
                         <label for="a">a</label> <br>
@@ -63,10 +64,10 @@
                         <input type="checkbox">
                         <label for="a">a</label> <br>
                         <input type="checkbox">
-                        <label for="a">a</label> <br>
+                        <label for="a">a</label> <br> -->
 
 
-                    </form>
+                    
                 </div>
             </div>
         </div>
@@ -80,7 +81,51 @@
     </div>
 
     <div class="prod-list">
-        <div class="card">
+        <div class="card" id="filtered-product">
+            {% for product in products %}
+                <div class="product-card">
+                    <div class="badge">-{{ product.get_percentage|floatformat }} <span> </span>%</div>
+                    <div class="product-tumb">
+                        <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                    </div>
+                    <div class="product-details">
+                        <span class="product-catagory">{{ product.Category }} </span>
+                        <h4><a href="{% url 'core:product_detail' product.pid %}">{{ product.title }}</a></h4>
+                        <p>{{ product.description }}</p>
+                        <p>by {{ product.vendor.title }}</p>
+                        <div class="product-bottom-details">
+                            <div class="product-price"><small>{{ product.old_price }}</small>${{ product.price }}</div>
+                            <div class="product-links">
+                                <a href=""><i class="fa fa-heart"></i> </a>
+                                
+                                <a href=""><i class="fa fa-shopping-cart"></i>cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %} 
+
+            {% for product in products %}
+                <div class="product-card">
+                    <div class="badge">-{{ product.get_percentage|floatformat }} <span> </span>%</div>
+                    <div class="product-tumb">
+                        <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                    </div>
+                    <div class="product-details">
+                        <span class="product-catagory">{{ product.Category }} </span>
+                        <h4><a >{{ product.title }} </a></h4>
+                        <p>{{ product.description }}</p>
+                        <p>by {{ product.vendor.title }}</p>
+                        <div class="product-bottom-details">
+                            <div class="product-price"><small>{{ product.old_price }}</small>${{ product.price }}</div>
+                            <div class="product-links">
+                                <a href=""><i class="fa fa-heart"></i></a>
+                                <a href=""><i class="fa fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}  
             {% for product in products %}
                 <div class="product-card">
                     <div class="badge">-{{ product.get_percentage|floatformat }} <span> </span>%</div>
@@ -101,8 +146,81 @@
                         </div>
                     </div>
                 </div>
-            {% endfor %}
+            {% endfor %} 
+            {% for product in products %}
+                <div class="product-card">
+                    <div class="badge">-{{ product.get_percentage|floatformat }} <span> </span>%</div>
+                    <div class="product-tumb">
+                        <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                    </div>
+                    <div class="product-details">
+                        <span class="product-catagory">{{ product.Category }} </span>
+                        <h4><a href="">{{ product.title }}</a></h4>
+                        <p>{{ product.description }}</p>
+                        <p>by {{ product.vendor.title }}</p>
+                        <div class="product-bottom-details">
+                            <div class="product-price"><small>{{ product.old_price }}</small>${{ product.price }}</div>
+                            <div class="product-links">
+                                <a href=""><i class="fa fa-heart"></i></a>
+                                <a href=""><i class="fa fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %} 
+            {% for product in products %}
+                <div class="product-card">
+                    <div class="badge">-{{ product.get_percentage|floatformat }} <span> </span>%</div>
+                    <div class="product-tumb">
+                        <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                    </div>
+                    <div class="product-details">
+                        <span class="product-catagory">{{ product.Category }} </span>
+                        <h4><a href="">{{ product.title }}</a></h4>
+                        <p>{{ product.description }}</p>
+                        <p>by {{ product.vendor.title }}</p>
+                        <div class="product-bottom-details">
+                            <div class="product-price"><small>{{ product.old_price }}</small>${{ product.price }}</div>
+                            <div class="product-links">
+                                <a href=""><i class="fa fa-heart"></i></a>
+                                <a href=""><i class="fa fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %} 
+            {% for product in products %}
+                <div class="product-card">
+                    <div class="badge">-{{ product.get_percentage|floatformat }} <span> </span>%</div>
+                    <div class="product-tumb">
+                        <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                    </div>
+                    <div class="product-details">
+                        <span class="product-catagory">{{ product.Category }} </span>
+                        <h4><a href="">{{ product.title }}</a></h4>
+                        <p>{{ product.description }}</p>
+                        <p>by {{ product.vendor.title }}</p>
+                        <div class="product-bottom-details">
+                            <div class="product-price"><small>{{ product.old_price }}</small>${{ product.price }}</div>
+                            <div class="product-links">
+                                <a href=""><i class="fa fa-heart"></i></a>
+                                <a href=""><i class="fa fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %} 
+
+            
+            
+
+
 
         </div>
     </div>
+
+    <div class="pagination">
+        <ul> <!--pages or li are comes from javascript --> </ul>
+      </div>
+      
 {% endblock %}

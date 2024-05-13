@@ -1,0 +1,111 @@
+.ver-cen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ }
+
+
+.cat-prod-list > .cat-name{
+    padding: 3rem;
+    margin: 3rem;
+    background: #D5EDE4;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+}
+.cat-prod-list > .cat-name div:first-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.cat-prod-list > .cat-name div:first-child div:first-child{
+    font-weight: 700;
+    font-size: 4rem;
+}
+.cat-prod-list > .cat-name div:first-child div:last-child ul {
+    display: flex;
+    padding: 0;
+}
+
+.cat-prod-list > .cat-name div:first-child div:last-child ul li{
+    
+    list-style-type: none;
+    margin-right: 1rem;
+    padding: 0.5rem;
+
+}
+.cat-prod-list > .cat-name div:first-child div:last-child ul li i{
+    margin-right: .5rem;
+}
+
+
+.cat-prod-list > .cat-name div:last-child {
+    display: flex;
+    
+}
+
+.cat-prod-list > .cat-name div:last-child > div  ul {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.cat-prod-list > .cat-name div:last-child > div ul li {
+    list-style-type: none;
+    margin: 1rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    font-weight: 500;
+}
+
+.cat-prod-list > .cat-name div:last-child > div ul li i{
+    font-size: .7rem;
+    font-weight: 500;
+    margin-right: .5rem;
+
+}
+
+.cat-prod-list > .filter {
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem;
+}
+
+.cat-prod-list > .filter > div:last-child  {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.cat-prod-list > .filter > div:last-child  div > div:first{
+    position: relative;
+}
+/* .cat-prod-list > .filter > div:last-child  div > div:last-child{
+    position: absolute;
+} */
+.cat-prod-list > .filter > div:last-child  div > div:last-child ul{
+    padding-left: 1.5rem;
+    
+    
+}
+
+.on-hover ul {
+    display: none; 
+}
+
+
+.show:hover .on-hover ul {
+    display: block; 
+}
+.cat-prod-list > .filter > div:last-child  div > div:last-child ul li {
+    list-style-type: none;
+    
+}
+
+
+.cat-prod-list > .listing{
+    display: flex;
+    flex-wrap: wrap;
+
+}

@@ -60,11 +60,12 @@ ul , li{
 .nav-bot{
     display: flex;
     justify-content: space-between;
+    
     margin-block:2rem ;
 
 }
 .nav-bot .first{
-    width: 33%;
+    width: 25%;
     
 }
 .nav-bot .first span{
@@ -89,11 +90,15 @@ ul , li{
 .nav-bot .second{
     display: flex;
     justify-content: space-between;
-    width: 77%;
+    flex-wrap: wrap;
+    
+}
+.nav-bot .second > div {
+    margin-inline: 1rem;
 }
 .nav-bot .second div:first-child{
-    font-size: 1.4rem;
-    margin-block: 0.3rem;
+    /* font-size: 1.4rem; */
+    
 }
 .nav-bot .second div h6{
     font-size: 1.4rem;

@@ -1,0 +1,70 @@
+{% extends "partials/base.html" %}
+{% load static %}
+
+{% block content %}
+        <div class="vendor_list">
+        
+
+        <div class="filter">
+            <div><h4>We found 29 item for you</h4></div>
+            <div>
+                <div class="show">
+                    <div>Show 50 </div>
+                    <div class="on-hover">
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="show">
+                    <div>Short by:feature</div>
+                    <div class="on-hover">
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vendors">
+            <div class="vcards">
+                
+                {% for vendor in vendors %}
+                  
+
+                    <div class="vcard">
+                        <div class="vimg">
+                            <img src="{{ vendor.cover_image.url }}"  alt="">
+                            <span>{{ vendor.product.all.count }}</span>
+                        </div>
+                        <div class="vdetails">
+                            <p class="vdate">Since {{ vendor.date|date:"Y"}}</p>
+                            <h4><a href="/vendor/{{vendor.vid}}">{{ vendor.title }}</a></h4>
+                            vendor_detials
+                            <div class="vrating">★★★☆☆</div>
+
+                            <div>
+                                <p class="vaddress">{{vendor.address}}</p>
+                                <p class="vcontact">Call {{ vendor.contact }}</p>
+                            </div>
+                        
+                        </div>
+                    </div>
+                {% endfor %}
+
+               
+            </div>
+
+            
+        </div>
+
+
+        </div>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "partials/base.html" %}
+{% load static %}
+
+{% block content %}
+        <div class="vendor_list">
+        
+
+        <div class="filter">
+            <div><h4>We found 29 item for you</h4></div>
+            <div>
+                <div class="show">
+                    <div>Show 50 </div>
+                    <div class="on-hover">
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="show">
+                    <div>Short by:feature</div>
+                    <div class="on-hover">
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vendors">
+           
+           
+                {{vendor.vid}}
+                {{vendor.title}}
+                {{vendor.image}}
+                {{vendor.cover_image}}
+
+               <br>
+
+
+
+                <div class="vdproducts">
+                    {% for product in products %}
+                        <div style="margin-block: 2rem;" class="vdproduct">
+                            <a href="#"><div><img src="" alt="">{{ product.image }}</div></a>
+                            <div class="vptitle">{{product.title|truncatechars:30}}</div>
+                            <div class="rating"></div>
+                            <div class="vdprice">{{product.price}}</div>
+
+                            <button class="vdaddtocart">Add to cart</button>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                            <div class="card">
+                {% for product in products %}
+                
+                    <div class="product-card">
+
+                        <div class="badge">-{{ product.get_percentage|floatformat }} <span> </span>%</div>
+                        <div class="product-tumb">
+                            <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                        </div>
+                        <div class="product-details">
+                            <span class="product-catagory">{{ product.Category }} </span>
+                            <h4><a href="{% url 'core:product_detail' product.pid %}">{{ product.title }}</a></h4>
+                            <p>{{ product.description }}</p>
+                            <p>by {{ product.vendor.title }}</p>
+                            <div class="product-bottom-details">
+                                <div class="product-price"><small>{{ product.old_price }}</small > <span>$</span><span class="current-product-price-{{ product.id }}">{{ product.price }}</span></div>
+                                <div class="product-links add-cart">
+                                    <input  type="hidden" value="1" name="" id="product-quantity" class="product-quantity-{{ product.id }}">
+                                    <input type="hidden" class="product-pid-{{ product.id }}" value="{{ product.pid }}">
+                                    <input type="hidden" class="product-image-{{ product.id }}" value="{{ product.image.url }}">
+                                    <input type="hidden" class="product-id-{{ product.id }}" value="{{ product.id }}">
+                                    <input type="hidden" class="product-title-{{ product.id }}" value="{{ product.title }}">
+                                    <button ><i class="fa fa-heart"></i></button>
+                                    <button type="submit" class="add add-to-cart-btn" data-index="{{ product.id }}" id="add-to-cart-btn" style="border: none;"><i class="fa fa-shopping-cart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}  
+                
+
+                
+
+
+
+            </div>
+               
+           
+
+            
+        </div>
+
+
+        </div>
+{% endblock %}

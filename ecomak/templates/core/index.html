@@ -179,26 +179,36 @@
 
             <div class="card">
                 {% for product in products %}
+                
                     <div class="product-card">
+
                         <div class="badge">-{{ product.get_percentage|floatformat }} <span> </span>%</div>
                         <div class="product-tumb">
                             <img src="{{ product.image.url }}" alt="{{ product.title }}">
                         </div>
                         <div class="product-details">
                             <span class="product-catagory">{{ product.Category }} </span>
-                            <h4><a href="">{{ product.title }}</a></h4>
+                            <h4><a href="{% url 'core:product_detail' product.pid %}">{{ product.title }}</a></h4>
                             <p>{{ product.description }}</p>
                             <p>by {{ product.vendor.title }}</p>
                             <div class="product-bottom-details">
-                                <div class="product-price"><small>{{ product.old_price }}</small>${{ product.price }}</div>
-                                <div class="product-links">
-                                    <a href=""><i class="fa fa-heart"></i></a>
-                                    <a href=""><i class="fa fa-shopping-cart"></i></a>
+                                <div class="product-price"><small>{{ product.old_price }}</small > <span>$</span><span class="current-product-price-{{ product.id }}">{{ product.price }}</span></div>
+                                <div class="product-links add-cart">
+                                    <input  type="hidden" value="1" name="" id="product-quantity" class="product-quantity-{{ product.id }}">
+                                    <input type="hidden" class="product-pid-{{ product.id }}" value="{{ product.pid }}">
+                                    <input type="hidden" class="product-image-{{ product.id }}" value="{{ product.image.url }}">
+                                    <input type="hidden" class="product-id-{{ product.id }}" value="{{ product.id }}">
+                                    <input type="hidden" class="product-title-{{ product.id }}" value="{{ product.title }}">
+                                    <button ><i class="fa fa-heart"></i></button>
+                                    <button type="submit" class="add add-to-cart-btn" data-index="{{ product.id }}" id="add-to-cart-btn" style="border: none;"><i class="fa fa-shopping-cart"></i></button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                {% endfor %} 
+                {% endfor %}  
+                
+
+                
 
 
 

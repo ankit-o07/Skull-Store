@@ -2,6 +2,9 @@ from django.db import models
 from shortuuid.django_fields import ShortUUIDField
 from django.utils.html import mark_safe
 from userauths.models import User
+from taggit.managers import TaggableManager
+# from ckeditor_uploader import RichTextUploadingField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 STATUS_CHOICE=(
     ("process", "Processing"),
@@ -57,7 +60,8 @@ class Vendor(models.Model):
     vid = ShortUUIDField(unique=True, length=10, max_length=30, prefix='ven',alphabet="abcdefgh12345")
     title = models.CharField(max_length=100, default="Nestify") 
     image = models.ImageField(upload_to=user_directory_path, default='vendor.jpg')
-    description = models.TextField(null=True, blank=True, default="I am a amzaing vendor")
+    cover_image = models.ImageField(upload_to=user_directory_path, default='vendor.jpg')
+    description = RichTextUploadingField(null=True, blank=True, default="I am a amzaing vendor")
 
     address = models.CharField(max_length=100, default="123 timbaktoo")
     contact = models.CharField(max_length=100, default="+91-5679834245")
@@ -69,7 +73,7 @@ class Vendor(models.Model):
 
 
     user = models.ForeignKey(User , on_delete=models.SET_NULL, null = True)
-
+    date = models.DateTimeField(auto_now_add=True,null=True, blank=True)
     class Meta:
         verbose_name_plural = "Vendors"
 
@@ -87,16 +91,21 @@ class Product(models.Model):
 
     user = models.ForeignKey(User , on_delete=models.SET_NULL, null = True)
     category = models.ForeignKey(Category,on_delete=models.SET_NULL, null = True)
-    vendor = models.ForeignKey(Vendor,on_delete=models.SET_NULL, null = True)
-
+    vendor = models.ForeignKey(Vendor,on_delete=models.SET_NULL, null = True,related_name="product")
     title = models.CharField(max_length=100, default="Product") 
     image = models.ImageField(upload_to=user_directory_path, default='product.jpg')
-    description = models.TextField(null=True, blank=True, default="this is product")
+    description = RichTextUploadingField(null=True, blank=True, default="this is product")
 
     price = models.DecimalField(max_digits=99999999, decimal_places=2, default='1.99')
     old_price = models.DecimalField(max_digits=99999999, decimal_places=2, default='2.99')
 
     specifications = models.TextField(null=True, blank=True, )
+    type = models.CharField(max_length=100, default="Organic" ,null = True,blank=True)
+    stock_count = models.CharField(max_length=100, default="10",null = True,blank=True)
+    life = models.CharField(max_length=100, default="100",null = True,blank=True)
+    mfd = models.DateTimeField(auto_now_add=False , null = True,blank=True)
+
+    tags = TaggableManager( blank=True)
     # tags  = models.ForeignKey(Tags,on_delete=models.SET_NULL, null = True)
 
     product_status = models.CharField(choices=STATUS,max_length=10,default="in_review")
@@ -128,7 +137,7 @@ class Product(models.Model):
     
 class ProductImages(models.Model):
     images = models.ImageField(upload_to="product-images",default="product.jpg")
-    product = models.ForeignKey(Product, on_delete=models.SET_NULL,null=True)
+    product = models.ForeignKey(Product, related_name= "p_image",on_delete=models.SET_NULL,null=True)
     date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -183,10 +192,11 @@ class CartOrderItems(models.Model):
 
 class ProductReview(models.Model):
     user = models.ForeignKey(User , on_delete=models.SET_NULL, null = True)
-    product = models.ForeignKey(Product , on_delete=models.SET_NULL, null = True)
+    product = models.ForeignKey(Product , on_delete=models.SET_NULL, null = True, related_name='reviews')
     review = models.TextField()
-    rating = models.IntegerField(choices=RATING,default=None)
-    date = models.DateTimeField(auto_now_add=True)
+    rating = models.IntegerField(choices=RATING,default=None, )
+    date = models.DateTimeField(auto_now_add=True)  
+
 
     class Meta:
         verbose_name_plural = "Product Reviews"
@@ -195,8 +205,8 @@ class ProductReview(models.Model):
     def product_image(self):
         return mark_safe('<img src="%s" width="50" height="50">' %(self.image.url))
     
-    def __str__(self):
-        return self.title
+    def __int__(self):
+        return self.rating
     
     def get_rating(self):
         return self.rating 

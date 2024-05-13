@@ -1,0 +1,143 @@
+.ver-cen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ }
+
+
+.vendor_list > .cat-name{
+    padding: 3rem;
+    margin: 3rem;
+    background: #D5EDE4;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+
+}
+.vendor_list > .cat-name div:first-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.vendor_list > .cat-name div:first-child div:first-child{
+    font-weight: 700;
+    font-size: 4rem;
+}
+.vendor_list > .cat-name div:first-child div:last-child ul {
+    display: flex;
+    padding: 0;
+}
+
+.vendor_list > .cat-name div:first-child div:last-child ul li{
+    
+    list-style-type: none;
+    margin-right: 1rem;
+    padding: 0.5rem;
+
+}
+.vendor_list > .cat-name div:first-child div:last-child ul li i{
+    margin-right: .5rem;
+}
+
+
+.vendor_list > .cat-name div:last-child {
+    display: flex;
+    
+}
+
+.vendor_list > .cat-name div:last-child > div  ul {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.vendor_list > .cat-name div:last-child > div ul li {
+    list-style-type: none;
+    margin: 1rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    font-weight: 500;
+}
+
+.vendor_list > .cat-name div:last-child > div ul li i{
+    font-size: .7rem;
+    font-weight: 500;
+    margin-right: .5rem;
+
+}
+
+.vendor_list > .filter {
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem;
+}
+
+.vendor_list > .filter > div:last-child  {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+.vendor_list > .filter > div:last-child  div > div:first{
+    position: relative;
+}
+/* vendor_list > .filter > div:last-child  div > div:last-child{
+    position: absolute;
+} */
+.vendor_list > .filter > div:last-child  div > div:last-child ul{
+    padding-left: 1.5rem;
+    
+    
+}
+
+.on-hover ul {
+    display: none; 
+}
+
+
+.show:hover .on-hover ul {
+    display: block; 
+}
+.vendor_list > .filter > div:last-child  div > div:last-child ul li {
+    list-style-type: none;
+    
+}
+
+
+.vendor_list > .listing{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.vcards{
+    display: flex;
+    
+}
+
+.vcard{
+    margin-inline: 2rem;
+    margin-block: 2rem;
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    height: 20rem;
+
+}
+
+.vcard .vimg{
+    display: flex;
+    flex-direction: column;
+}
+
+.vcard .vimg img{
+   
+    object-fit: cover;
+    object-position: center;
+    width: 50%;
+}
+
+.vcard .vimg span{
+    
+    background: greenyellow;
+}

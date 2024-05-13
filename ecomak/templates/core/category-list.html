@@ -1,0 +1,125 @@
+{% extends "partials/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="filter">
+        <div class="filter-m">
+            <div class="by-category">
+                <h4>By Category</h4>
+                <div>
+                    <div>Dairy</div>
+                    <div>Clothing & Beauty</div>
+                    <div>Pet & Food</div>
+                    <div>Baking Material</div>
+                </div>
+            </div>
+            <div class="by-vendor">
+                <h4>By Vendor</h4>
+                <div>
+                    <form action=".">
+                        <input type="checkbox">
+                        <label for="a">a</label> <br>
+                        
+                        <input type="checkbox">
+                        <label for="a">a</label> <br>
+                       
+                        <input type="checkbox">
+                        <label for="a">a</label> <br>
+
+                        <input type="checkbox">
+                        <label for="a">a</label> <br>
+                        <input type="checkbox">
+                        <label for="a">a</label> <br>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="by-tag">
+                <h4>By Tag</h4>
+                <div>
+                    <div><span>X</span> milk</div>
+                    <div><span>X</span> salad</div>
+                </div>
+
+            </div>
+            <div class="by-price">
+                <h4>By Price</h4>
+
+                <div>
+                    <form action=".">
+                        <input type="range">
+                        <div><span>From: </span> <span>To:</span></div>
+
+                        <input type="checkbox">
+                        <label for="a">a</label> <br>
+                        
+                        <input type="checkbox">
+                        <label for="a">a</label> <br>
+                       
+                        <input type="checkbox">
+                        <label for="a">a</label> <br>
+
+                        <input type="checkbox">
+                        <label for="a">a</label> <br>
+                        <input type="checkbox">
+                        <label for="a">a</label> <br>
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="prod-info">
+        <p>We found 29 items for you </p>
+        <div>
+            <div>Show</div>
+            <div>sort by</div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="prod-list">
+        <div class="card">
+            {% for category in categories %}
+                <div class="product-card">
+                    {% comment %} <div class="badge">-{{ product.get_percentage|floatformat }} <span> </span>%</div> {% endcomment %}
+                    
+                    <div class="product-tumb">
+                        <img src="{{ category.image.url }}" alt="{{ category.title }}">
+                    </div>
+                    <div class="product-details">
+                        <span class="product-catagory"> <a href="{{ category.cid }}"> {{ category.title }}<a> </span>
+                        <h4><a >{{ product.title }}</a></h4>
+                        <!-- <p>{{ product.description }}</p> -->
+                        <!-- <p>by {{ product.vendor.title }}</p> -->
+                        <div class="product-bottom-details">
+                            <div class="product-price"><small>{{ product.old_price }}</small>{{ category.category.count }}</div>
+                            <div class="product-links">
+                                <a href=""><i class="fa fa-heart"></i></a>
+                                <a href=""><i class="fa fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}  
+
+
+
+
+            
+
+
+
+        </div>
+    </div>
+
+    <div class="pagination">
+        <ul> <!--pages or li are comes from javascript --> </ul>
+    </div>
+      
+{% endblock %}

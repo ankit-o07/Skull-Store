@@ -1,0 +1,21 @@
+{% for product in products %}
+                <div class="product-card">
+                    <div class="badge">-{{ product.get_percentage|floatformat }} <span> </span>%</div>
+                    <div class="product-tumb">
+                        <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                    </div>
+                    <div class="product-details">
+                        <span class="product-catagory">{{ product.Category }} </span>
+                        <h4><a href="">{{ product.title }}</a></h4>
+                        <p>{{ product.description }}</p>
+                        <p>by {{ product.vendor.title }}</p>
+                        <div class="product-bottom-details">
+                            <div class="product-price"><small>{{ product.old_price }}</small>${{ product.price }}</div>
+                            <div class="product-links">
+                                <a href=""><i class="fa fa-heart"></i></a>
+                                <a href=""><i class="fa fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %} 
